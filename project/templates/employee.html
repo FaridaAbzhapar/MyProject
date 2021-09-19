@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% for employee in employees %}
+
+    <a href="{% url 'update-author' pk=employee.id %}">
+        {{ employee.fio }}
+        <hr/>
+    </a>
+        <a href="{% url 'delete_news' pk=ne.id %}">Удалить</a>
+
+{% endfor %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>
+
